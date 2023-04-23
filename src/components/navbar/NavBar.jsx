@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = (props) => {  // sau khi từ props thì ta đã hứng props từ cpn cha truyền xuống
+
+  const {title, dropDownOptions} = props
+
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -26,19 +30,19 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Homepage</a>
+              <a>{dropDownOptions.Setting}</a>
             </li>
             <li>
-              <a>Portfolio</a>
+              <a>{dropDownOptions.Social}</a>
             </li>
             <li>
-              <a>About</a>
+              <a>{dropDownOptions.Contact}</a>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">{title}</a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">

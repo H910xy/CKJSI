@@ -1,12 +1,12 @@
-import React from 'react'
-import CustomCard from '../card/CustomCard'
+import React, { useState } from 'react'
 
-const Content = () => {
+const Content = (props) => {
+
+
+
   return (
-    <div className='h-full w-full'>
-        <div>
-            <CustomCard/>
-        </div>
+    <div className="h-full w-full">
+      {props.children}   
     </div>
   )
 }
