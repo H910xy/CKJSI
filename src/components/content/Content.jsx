@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const Content = (props) => {
-
-
 
   return (
     <div className="h-full w-full">
