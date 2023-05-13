@@ -10,9 +10,10 @@ const Layout = (props) => {
           title={'JSI-07'}
           dropDownOptions = {
             {
-              Setting : "Setting",
+              Setting : "Settings",
               Contact : 'Contact',
-              Social : 'Social'
+              Social : 'Social',
+              Logout : 'Logout'
             }
           }
         />

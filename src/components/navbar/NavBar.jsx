@@ -38,6 +38,9 @@ const Navbar = (props) => {  // sau khi từ props thì ta đã hứng props t�
             <li>
               <a>{dropDownOptions.Contact}</a>
             </li>
+            <li>
+              <a>{dropDownOptions.Logout}</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -82,7 +85,7 @@ const Navbar = (props) => {  // sau khi từ props thì ta đã hứng props t�
         </button>
       </div>
     </div>
-  )
+  );
 }
 
 export default Navbar
