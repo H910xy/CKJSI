@@ -16,6 +16,7 @@ import AddCollectionBtn from "../../components/button/AddCollectionBtn";
 import CustomModal from "../../components/modal/CustomModal";
 
 import { useControlModal } from "../../store/useControlModal";
+import Lesson4 from "../../lesson/Lesson4";
 
 // Mô tả các hàm trong firebase/fireStore
 // 1, collection: truy suất đến collection name được tạo trên firestore
@@ -130,7 +131,7 @@ const Home = () => {
             className="btn ">Tăng thêm input</button>
         </div>
       </div> */}
-      <div className="flex items-end flex-col">
+      {/* <div className="flex items-end flex-col">
         <VerticalCarousel deleteDocument={deleteDocument} />
         <AddCollectionBtn
           title="Add New Collection"
@@ -143,6 +144,11 @@ const Home = () => {
             updateCollection={handleUpdateDoc}
           />
         )}
+      </div> */}
+
+
+      <div>
+        <Lesson4 />
       </div>
     </div>
   );
