@@ -131,7 +131,7 @@ const Home = () => {
             className="btn ">Tăng thêm input</button>
         </div>
       </div> */}
-      {/* <div className="flex items-end flex-col">
+      <div className="flex items-end flex-col">
         <VerticalCarousel deleteDocument={deleteDocument} />
         <AddCollectionBtn
           title="Add New Collection"
@@ -144,12 +144,12 @@ const Home = () => {
             updateCollection={handleUpdateDoc}
           />
         )}
-      </div> */}
-
-
-      <div>
-        <Lesson4 />
       </div>
+
+
+      {/* <div>
+        <Lesson4 />
+      </div> */}
     </div>
   );
 };

@@ -48,6 +48,7 @@ const Navbar = (props) => {  // sau khi từ props thì ta đã hứng props t�
         <a className="btn btn-ghost normal-case text-xl">{title}</a>
       </div>
       <div className="navbar-end">
+          
         <button className="btn btn-ghost btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
