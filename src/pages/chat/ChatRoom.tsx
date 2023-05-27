@@ -1,13 +1,14 @@
 import React from 'react';
-import ChatBox from '../../components/chat/ChatBox';
-import SendMessage from '../../components/chat/SendMessage';
+import ChatBox from './components/ChatBox';
+import InputAndSend from './components/InputAndSend';
+
 
 
 const ChatRoom = () => {
   return (
     <div>
       <ChatBox/>
-      <SendMessage/>
+      <InputAndSend/>
     </div>
   )
 }

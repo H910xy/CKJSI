@@ -21,7 +21,7 @@ const app = initializeApp(firebaseConfig);  // khoi tao firebase project
 export const auth = getAuth(app)  // bien auth bay gio se su dung thay cho ham getAuth voi config la bien app dc khoi tao tu firebase
 export const db = getFirestore(app) // khai bao cho firebase biet minh se su dung firestore database thong qua bien database voi config chinh la bien app khoi tao boi firebaseConfig
 
-export const ROOM_CHAT_COLLECTION = 'room_chat' // khai bao ten collection
+export const ROOM_CHAT_COLLECTION = 'Global_Chat' // khai bao ten collection
 
 
 export const actionCodeSettings = {

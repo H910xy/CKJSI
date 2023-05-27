@@ -17,6 +17,7 @@ import CustomModal from "../../components/modal/CustomModal";
 
 import { useControlModal } from "../../store/useControlModal";
 import Lesson4 from "../../lesson/Lesson4";
+import { Link } from "react-router-dom";
 
 // Mô tả các hàm trong firebase/fireStore
 // 1, collection: truy suất đến collection name được tạo trên firestore
@@ -131,7 +132,7 @@ const Home = () => {
             className="btn ">Tăng thêm input</button>
         </div>
       </div> */}
-      <div className="flex items-end flex-col">
+      {/* <div className="flex items-end flex-col">
         <VerticalCarousel deleteDocument={deleteDocument} />
         <AddCollectionBtn
           title="Add New Collection"
@@ -144,12 +145,26 @@ const Home = () => {
             updateCollection={handleUpdateDoc}
           />
         )}
-      </div>
-
+      </div> */}
 
       {/* <div>
         <Lesson4 />
       </div> */}
+
+      <div
+        className="
+      px-3 py-2 text-white rounded-md cursor-pointer absolute right-10 bottom-24 animate-bounce
+        bg-gradient-to-r
+        from-green-400
+        to-blue-500
+        hover:from-pink-500
+        hover:to-yellow-500
+        "
+      >
+        <Link className="border-none hover:border-none" to="/chat">
+          Need Support
+        </Link>
+      </div>
     </div>
   );
 };
