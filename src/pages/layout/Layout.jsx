@@ -5,7 +5,7 @@ import Content from '../../components/content/Content'
 
 const Layout = (props) => {
   return (
-    <div className='flex flex-1 flex-col h-screen w-screen bg-slate-100 overflow-auto'>
+    <div className='flex flex-1 flex-col h-screen w-screen bg-slate-100 overflow-y-auto'>
         <Navbar 
           title={'JSI-07'}
           dropDownOptions = {
@@ -17,13 +17,13 @@ const Layout = (props) => {
             }
           }
         />
-        <div className='w-full h-full bg-white overflow-auto'>
+        <div className='w-full h-full bg-white overflow-y-auto'>
           {/* {props.children} */}
           <Content>
             {props.children}
           </Content>
         </div>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

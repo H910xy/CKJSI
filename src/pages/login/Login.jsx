@@ -18,7 +18,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
     const handleSignInWithEmailAndPassword = async (e) => {
-        e.preventDefault()
+        e.preventDefault()  // prevent reload page
         try {
             const result = await signInWithEmailAndPassword(auth, email, password)
             if (result?.user?.accessToken) {
@@ -38,8 +38,8 @@ const Login = () => {
     const handleSignInWithGoogle = async (e) => { 
         e.preventDefault()
         try {
-            const provider = new GoogleAuthProvider()
-            const result = await signInWithPopup(auth, provider)
+            const googleLoginProvider = new GoogleAuthProvider() // provider co gia tri bay gio = google auth provider dc import tu firebase
+            const result = await signInWithPopup(auth, googleLoginProvider);
             if (result?.user?.accessToken) {
                 alert('Login Successfully')
                 navigate('/')
