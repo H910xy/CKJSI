@@ -4,8 +4,17 @@ import { useControlModal } from "../../store/useControlModal";
 const CustomModal = (props) => {
   const { addCollection, updateCollection } = props;
 
-  const { modalVisible, setModalVisible, selectedItem, setSelectedItem } =
-    useControlModal();
+  const {
+    modalVisible,
+    setModalVisible,
+    selectedItem,
+    setSelectedItem,
+    typeModal,
+  } = useControlModal();
+
+
+
+
 
   const [addSong, setAddSong] = useState({
     album: "",
@@ -105,9 +114,7 @@ const CustomModal = (props) => {
                 type="text"
                 className="w-full bg-gray-100 p-2 mt-2 mb-3 rounded-lg outline-none"
                 placeholder="Enter release at"
-                value={
-                  addSong.releaseAt
-                }
+                value={addSong.releaseAt}
                 onChange={(e) =>
                   setAddSong({ ...addSong, releaseAt: e.target.value })
                 }
@@ -119,7 +126,7 @@ const CustomModal = (props) => {
                 placeholder="Enter true of false"
                 value={addSong.isLike}
                 onChange={(e) =>
-                  setAddSong({ ...addSong, isLike: e.target.value})
+                  setAddSong({ ...addSong, isLike: e.target.value })
                 }
               />
             </div>
@@ -138,7 +145,7 @@ const CustomModal = (props) => {
               <button
                 type="button"
                 onClick={() => {
-                  if (selectedItem) {
+                  if (typeModal === 'updateCollection') {
                     updateCollection(selectedItem.id, addSong);
                   } else {
                     addCollection(addSong);
@@ -148,7 +155,9 @@ const CustomModal = (props) => {
                 }}
                 className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
               >
-                {selectedItem ? "Update Song" : "Add new Song"}
+                {typeModal === "addCollection"
+                  ? "Add new Song"
+                  : "Update Song"}
               </button>
             </div>
           </div>

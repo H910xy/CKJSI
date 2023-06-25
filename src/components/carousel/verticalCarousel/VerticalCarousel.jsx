@@ -6,11 +6,21 @@ import { useControlModal } from "../../../store/useControlModal";
 const VerticalCarousel = (props) => {
   const { deleteDocument } = props;
   const { dataStore } = useFirebaseStore();
-  const { setModalVisible, setSelectedItem } = useControlModal();
+  const { setModalVisible, setSelectedItem, setTypeModal } = useControlModal();
+
+
+  const array = [1,2,3,4,5,6]
+  // item : 1,2,3,4,5,6
+  // index : 0,1,2,3,4,5
+
+
+
+
 
   return (
     <div className="h-96 carousel carousel-vertical rounded-box">
-      {dataStore?.map((item, index) => {
+      {dataStore?.map(
+        (item, index) => {
         return (
           <div key={index} className="carousel-item h-full">
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -30,6 +40,7 @@ const VerticalCarousel = (props) => {
                 onClick={() => {
                   setModalVisible(true);
                   setSelectedItem(item);
+                  setTypeModal("updateCollection");
                 }}
               >Edit</div>
               <div className="card-body">
@@ -48,7 +59,9 @@ const VerticalCarousel = (props) => {
             </div>
           </div>
         );
-      })}
+      }
+      )
+      }
     </div>
   );
 };

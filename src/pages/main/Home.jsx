@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../../firebase/firebase.config";
+import { db, FIREBASE_COLLECTIONS } from "../../../firebase/firebase.config";
 import { useFirebaseStore } from "../../store/UseFirebase";
 import {
   collection,
@@ -41,14 +41,14 @@ const Home = () => {
     // dead la false !dead = true
   };
 
-  const { dataStore, setDataStore, isLoading, setIsLoading } =
+  const { dataStore, setDataStore, isLoading, setIsLoading, kienthuc, setKienthuc } =
     useFirebaseStore();
 
-  const { setModalVisible, modalVisible } = useControlModal();
+  const { setModalVisible, modalVisible, setTypeModal } = useControlModal();
 
   // các bước lấy data từ firestore
   // 1, truy suất đến collection name được tạo trên firestore
-  const songRef = collection(db, "songs");
+  const songRef = collection(db, FIREBASE_COLLECTIONS);
 
   // 2,viet ham de lấy dữ liệu từ collection dựa theo name trên firestore
   // voi ham getDocs nhan gia tri truyen vao la bien Ref duoc tao tu buoc 1
@@ -61,7 +61,9 @@ const Home = () => {
       ...doc.data(),
       id: doc.id,
     }));
-    setDataStore(collectionData);
+    // set dữ liệu với vào store với data là collectionData
+    setDataStore(collectionData); // sau khi hàm này đc gọi 
+    // thì state dataStore của useFirebase sẽ có giá trị === collectionData
     setIsLoading(false);
   };
 
@@ -69,9 +71,11 @@ const Home = () => {
     getFirebaseData();
   }, []);
 
+  // useEffect với dependency là empty array thì hàm bên trong nó chỉ chạy 1 lần duy nhất
+
+
   //4, map dataStore để render ra giao diện
 
-  console.log(modalVisible, "modalVisible")
 
 
   const handleAddCollection = async (data) => {
@@ -81,14 +85,14 @@ const Home = () => {
    }
 
    const handleUpdateDoc = async  (id,data) => {
-    await updateDoc(doc(db, "songs", id), data);
+    await updateDoc(doc(db, FIREBASE_COLLECTIONS, id), data);
     setModalVisible(!modalVisible);
     getFirebaseData()
    }
 
 
    const deleteDocument = async (id) => {
-    await deleteDoc(doc(db, "songs", id));
+    await deleteDoc(doc(db, FIREBASE_COLLECTIONS, id));
     getFirebaseData();
   };
 
@@ -132,12 +136,15 @@ const Home = () => {
             className="btn ">Tăng thêm input</button>
         </div>
       </div> */}
-      {/* <div className="flex items-end flex-col">
+      <div className="flex items-end flex-col">
         <VerticalCarousel deleteDocument={deleteDocument} />
         <AddCollectionBtn
           title="Add New Collection"
           reStyle="mt-4"
-          onClick={() => setModalVisible(true)}
+          onClick={() => {
+            setModalVisible(true)
+            setTypeModal("addCollection");
+          }}
         />
         {modalVisible && (
           <CustomModal
@@ -145,7 +152,7 @@ const Home = () => {
             updateCollection={handleUpdateDoc}
           />
         )}
-      </div> */}
+      </div>
 
       {/* <div>
         <Lesson4 />

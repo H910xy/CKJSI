@@ -21,7 +21,7 @@ const routers = createBrowserRouter(
       <Route path="signup" element={<SignUp />} />
       <Route path="forgot" element={<Forget />} />
       <Route path="chat" element={<ChatRoom />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<NotFound />} /> 
     </>
   )
 )
