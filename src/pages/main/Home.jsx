@@ -16,7 +16,6 @@ import AddCollectionBtn from "../../components/button/AddCollectionBtn";
 import CustomModal from "../../components/modal/CustomModal";
 
 import { useControlModal } from "../../store/useControlModal";
-import Lesson4 from "../../lesson/Lesson4";
 import { Link } from "react-router-dom";
 
 // Mô tả các hàm trong firebase/fireStore
@@ -31,7 +30,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   // giá trị khởi tạo cúa state là tất cả các kiểu dữ liệu mà JS có thể có
-  const [count, setCount] = useState(60);
+  const [count, setCount] = useState("");
   const [inputVal, setInputVal] = useState("");
   const [isDead, setIsDead] = useState(true); // boolean
 
@@ -41,9 +40,8 @@ const Home = () => {
     // dead la false !dead = true
   };
 
-  const { dataStore, setDataStore, isLoading, setIsLoading, kienthuc, setKienthuc } =
-    useFirebaseStore();
-
+  const { dataStore, setDataStore, isLoading, setIsLoading, } = useFirebaseStore();
+  console.log(dataStore);
   const { setModalVisible, modalVisible, setTypeModal } = useControlModal();
 
   // các bước lấy data từ firestore
@@ -125,75 +123,20 @@ const Home = () => {
               return index == 0 ? "" : (
                 <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                   <a href="#_" className="block w-full">
-                    <img className="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 h-[14rem]" src={item.image } />
+                    <img className="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 h-[14rem]" src={item.image} />
                   </a>
                   <div className="bg-purple-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                     <span>Recommended</span>
                   </div>
                   <h2 className="text-lg font-bold sm:text-xl md:text-2xl"><a className="text-black" href="#_">{item.place}</a></h2>
                   <p className="text-sm text-gray-500">{item.description}</p>
-<p className="pt-2 text-xs font-medium"><a href="#_" className="mr-1">{item.address}</a> · <span className="mx-1">April 17, 2021</span> · <span className="mx-1 text-gray-600">3 min. read</span></p>
+                  <p className="pt-2 text-xs font-medium"><a href="#_" className="mr-1">{item.address}</a> · <span className="mx-1">April 17, 2021</span> · <span className="mx-1 text-gray-600">3 min. read</span></p>
                 </div>
               );
             })}
           </div>
         </div>
       </section>
-
-      {/* <div className="flex flex-1 flex-col justify-center items-center gap-y-4">
-        <h1 className="text-[48px] text-black">{count}</h1>
-        <input 
-          type="text" 
-          placeholder="Type here" 
-          className="input input-bordered w-full max-w-xs"
-          value={inputVal}  // value dang nhan gia tri la inputVal dc khoi tao tu useState ben tren
-          onChange={(e) => setInputVal(e.target.value)}  // e la event khi nhan vao ban phim, e.target.value la gia tri ma nguoi dung nhap vao  tu ban phim
-          // sau khi co e.target.value thi setInputVal(e.target.value) la cap nhat lai gia tri cua inputVal === e.target.value
-          />
-        <div className="btn-group btn-group-vertical lg:btn-group-horizontal">
-        <button
-        // dat dau + truoc 1 string de bien no thanh dang number
-        // khi string k phai la chu ma la so (a,b,c, z, ) => khong the dang number
-        // "4" => +"4" = 4
-            onClick={()=> setCount((prev) => prev - +inputVal)} 
-            className="btn ">Giảm đi input</button>
-          <button
-          // prev la previous value cua state
-            onClick={()=> setCount((prev) => prev -1)} 
-            className="btn ">Giảm đi 1</button>
-          <button
-            onClick={() => setCount(60)} 
-            className="btn">Reset</button>
-          <button 
-            onClick={() => 
-              setCount(
-              (prev) => prev +1
-              )
-            }
-            className="btn">Tăng thêm 1</button>
-            <button
-            onClick={()=> setCount((prev) => prev + +inputVal)} 
-            className="btn ">Tăng thêm input</button>
-        </div>
-      </div> */}
-      {/* <div className="flex items-end flex-col">
-        <VerticalCarousel deleteDocument={deleteDocument} />
-        <AddCollectionBtn
-          title="Add New Collection"
-          reStyle="mt-4"
-          onClick={() => setModalVisible(true)}
-        />
-        {modalVisible && (
-          <CustomModal
-            addCollection={handleAddCollection}
-            updateCollection={handleUpdateDoc}
-          />
-        )}
-      </div> */}
-
-      {/* <div>
-        <Lesson4 />
-      </div> */}
 
       <div
         className="
@@ -211,6 +154,6 @@ const Home = () => {
       </div>
     </div>
   );
-};
+}
 
-      export default Home;
+export default Home

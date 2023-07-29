@@ -39,7 +39,9 @@ const Navbar = (props) => {  // sau khi từ props thì ta đã hứng props t�
               <a>{dropDownOptions.Contact}</a>
             </li>
             <li>
-              <a>{dropDownOptions.Logout}</a>
+              <a >
+              {dropDownOptions.Logout}
+              </a>
             </li>
           </ul>
         </div>

@@ -25,7 +25,7 @@ const VerticalCarousel = (props) => {
           <div key={index} className="carousel-item h-full">
             <div className="card w-96 bg-base-100 shadow-xl">
               <figure>
-                <img src={item.coverUrl} alt="cover" />
+                <img src={item.image} alt="cover" />
               </figure>
               <div
                 onClick={() => {
@@ -50,10 +50,10 @@ const VerticalCarousel = (props) => {
                     {item.isLike ? "❤️" : "🥺"}
                   </div>
                 </h2>
-                <p>Album: {item.album}</p>
+                <p> List : {item.place}</p>
                 <div className="card-actions justify-end">
-                  <div className="badge badge-outline">{item.singer}</div>
-                  <div className="badge badge-outline">{item.releaseAt}</div>
+                  <div className="badge badge-outline">{item.address}</div>
+                  <div className="badge badge-outline">{item.description}</div>
                 </div>
               </div>
             </div>

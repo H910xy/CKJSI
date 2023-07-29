@@ -17,7 +17,7 @@ export const useFirebaseStore = create(
       // data ở đây chính là collectionData 
       setDataStore: (data) => set({ dataStore: data }), // ham nay nhan data tu firebase roi cap nhat lai state dataStore voi data moi nhan ve
       // ham cap nhat gia tri state === setStateName
-      setKienthuc: (baihoc) => set({ kienthuc: baihoc }),
+     
 
       // với : baihoc : giá trị nhận được từ các nơi khác truyền vào
       // set(kienthuc : baihoc) : cập nhật lại state kienthuc với giá trị là baihoc nhận dượdc
